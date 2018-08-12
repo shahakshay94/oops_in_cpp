@@ -3,7 +3,7 @@
 #include "Rectangle.h"
 #include "Oblique.h"
 #include "Rhombus.h"
-#include "RightAngle.h"
+#include "RightTriangle.h"
 
 using std::cout;
 using std::cin;
@@ -17,7 +17,7 @@ void drawHouseLateBinding();
 
 int main() {
     drawHouseEarlyBinding();
-    drawHouseLateBinding();
+    //drawHouseLateBinding();
     return 0;
 }
 
@@ -98,7 +98,7 @@ void drawHouseEarlyBinding() {
     Rectangle pole(1, 12, "flag pole");
     pole.draw(poster, 10, 41, 'i'); // flag pole
 
-    RightAngle flag(6, "flag");
+    RightTriangle flag(6, "flag");
     flag.draw(poster, 11, 42, '\\'); // flag
 
     cout << poster;
@@ -226,7 +226,7 @@ void drawHouseLateBinding() {
     shapePtr = &pole;
     shapePtr->draw(poster, 10, 41, 'i'); // flag pole
 
-    RightAngle flag(6);
+    RightTriangle flag(6);
     shapePtr = &flag;
     shapePtr->draw(poster, 11, 42, '\\'); // flag
 

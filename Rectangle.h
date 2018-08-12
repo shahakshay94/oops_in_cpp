@@ -4,27 +4,25 @@
 #include "Shape.h"
 #include <iostream>
 
+using namespace std;
+
 class Rectangle : public Shape {
 public:
     Rectangle() = delete;
 
-    Rectangle(int h, int w, const std::string &d = "");
+    Rectangle(int rectHeight, int rectWidth, const string &d = "");
 
     Rectangle(const Rectangle &) = default;
 
-    ~Rectangle();
+    ~Rectangle() override;
 
     const Rectangle &operator=(const Rectangle &rhs);
 
     int getHeight() const;
 
-    void setHeight(int h);
-
     int getWidth() const;
 
-    void setWidth(int w);
-
-    std::string toString() const override;
+    string toString() const override;
 
     void scale(int n) override;
 
@@ -48,6 +46,6 @@ private:
     int width;
 };
 
-std::ostream &operator<<(std::ostream &ostr, const Rectangle &rhs);
+ostream &operator<<(ostream &ostr, const Rectangle &rhs);
 
 #endif // !RECTANGLE_H

@@ -3,14 +3,11 @@
 
 using namespace std;
 
-Rectangle::Rectangle(int w, int h, const string &d) : Shape("Rectangle", d), height(h), width(w) {
-    //cout << "Rectangle ctor" << endl;
+Rectangle::Rectangle(int rectHeight, int rectWidth, const string &d) : Shape("Rectangle", d), height(rectHeight), width(rectWidth) {
     assert(height > 0 && width > 0);
 }
 
-Rectangle::~Rectangle() {
-    //cout << "Rectangle dtor." << endl;
-}
+Rectangle::~Rectangle() = default;
 
 const Rectangle &Rectangle::operator=(const Rectangle &rhs) {
     if (this == &rhs) return *this;
@@ -24,22 +21,8 @@ int Rectangle::getHeight() const {
     return height;
 }
 
-void Rectangle::setHeight(int h) {
-    if (h > 0)
-        height = h;
-    else
-        cerr << "Error. Height has to be greater than zero." << endl;
-}
-
 int Rectangle::getWidth() const {
     return width;
-}
-
-void Rectangle::setWidth(int w) {
-    if (w > 0)
-        width = w;
-    else
-        cerr << "Error. Width has to be greater than zero." << endl;
 }
 
 string Rectangle::toString() const {
@@ -93,7 +76,7 @@ void Rectangle::draw(Canvas &canvas, int c, int r, char fg, char bg) const {
     }
 }
 
-std::ostream &operator<<(std::ostream &ostr, const Rectangle &rhs) {
+ostream &operator<<(ostream &ostr, const Rectangle &rhs) {
     const Shape *shapePtr = &rhs;
     ostr << *shapePtr;
     ostr.precision(2);

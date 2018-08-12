@@ -3,13 +3,11 @@
 
 using namespace std;
 
-Triangle::Triangle(int h, int b, const std::string &gn, const string &d) : Shape(gn, d), height(h), base(b) {
-    //cout << "Triangle ctor" << endl;
+Triangle::Triangle(int triangleHeight, int triangleBase, const std::string &gn, const string &desc) : Shape(gn, desc), height(triangleHeight), base(triangleBase) {
+
 }
 
-Triangle::~Triangle() {
-    //cout << "Triangle dtor" << endl;
-}
+Triangle::~Triangle() = default;
 
 const Triangle &Triangle::operator=(const Triangle &rhs) {
     if (this == &rhs) return *this;
@@ -35,7 +33,6 @@ int Triangle::getBase() const {
 }
 
 std::string Triangle::toString() const {
-    //cout << "Triangle::toString()" << endl;
     string temp{Shape::toString()};
     temp.append("\nBound. box W:  " + to_string(bBoxWidth()));
     temp.append("\nBound. box H:  " + to_string(bBoxHeight()));

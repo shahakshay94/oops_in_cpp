@@ -1,5 +1,4 @@
 #include "Shape.h"
-//#include <typeinfo>
 #include <iostream>
 #include <sstream>
 
@@ -7,8 +6,8 @@ using namespace std;
 
 int Shape::nextId = 1;
 
-Shape::Shape(const string &sn, const string &d) : shapeName(sn), description(d), idNum(nextId++) {
-    if (d.empty())
+Shape::Shape(const string &nameOfShape, const string &desc) : shapeName(nameOfShape), description(desc), idNum(nextId++) {
+    if (desc.empty())
         description = "Generic " + shapeName;
 }
 
@@ -31,7 +30,7 @@ string Shape::getDescription() const {
     return description;
 }
 
-std::string Shape::toString() const {
+string Shape::toString() const {
     string temp{"Shape Information\n-----------------"};
     temp += "\nStatic Type:   ";
     temp.append(typeid(this).name());

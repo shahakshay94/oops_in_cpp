@@ -2,28 +2,30 @@
 #define SHAPE_H
 
 #include "Canvas.h"
+using namespace std;
 
 class Shape {
 public:
     Shape() = delete;
 
-    Shape(const std::string &sn, const std::string &d);
+    Shape(const string &nameOfShape, const string &desc);
 
     Shape(const Shape &) = default;
 
     virtual ~Shape() = default;
 
-    virtual const Shape &operator=(const Shape &rhs);
+    const Shape &operator=(const Shape &rhs);
 
     int getIdNum() const;
 
-    std::string getShapeName() const;
+    string getShapeName() const;
 
-    std::string getDescription() const;
+    string getDescription() const;
 
-    virtual std::string toString() const;
+    string doubleToString(double d, int p) const; // takes a double and returns a string. p is for precision
 
-    std::string doubleToString(double d, int p) const; // takes a double and returns a string. p is for precision
+    virtual string toString() const;
+
     virtual void scale(int s) = 0;
 
     virtual double geoArea() const = 0;
@@ -44,10 +46,10 @@ public:
 private:
     static int nextId; // keeps track of next id number to be assigned
     int idNum; // unique id number
-    std::string shapeName; // generic name
-    std::string description;    // variable descriptive name
+    string shapeName; // generic name
+    string description;    // variable descriptive name
 };
 
-std::ostream &operator<<(std::ostream &ostr, const Shape &rhs);
+ostream &operator<<(ostream &ostr, const Shape &rhs);
 
 #endif // !SHAPE_H

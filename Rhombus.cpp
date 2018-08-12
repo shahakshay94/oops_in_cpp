@@ -4,16 +4,14 @@
 
 using namespace std;
 
-Rhombus::Rhombus(int diag, const string &desc) : Shape("Rhombus", desc), diagonal(diag) {
-    //cout << "Rhombus ctor" << endl;
+Rhombus::Rhombus(int rhomDiagonal, const string &desc) : Shape("Rhombus", desc), diagonal(rhomDiagonal) {
+
     if (diagonal % 2 == 0)
         ++diagonal;
     assert(diagonal > 0);
 }
 
-Rhombus::~Rhombus() {
-    //cout << "Rhombus dtor." << endl;
-}
+Rhombus::~Rhombus() = default;
 
 const Rhombus &Rhombus::operator=(const Rhombus &rhs) {
     if (this == &rhs) return *this;
@@ -26,17 +24,7 @@ int Rhombus::getDiagonal() const {
     return diagonal;
 }
 
-void Rhombus::setDiagonal(int d) {
-    if (d % 2 == 0)
-        ++d;
-    if (d > 0)
-        diagonal = d;
-    else
-        cerr << "Error. Diagonal has to be and odd integer greater than zero." << endl;
-}
-
 string Rhombus::toString() const {
-    //cout << "Rhombus::toString()" << endl;
     string temp{Shape::toString()};
     temp.append("\nB. box width:  " + to_string(bBoxWidth()));
     temp.append("\nB. box height:  " + to_string(bBoxHeight()));
@@ -68,13 +56,6 @@ void Rhombus::scale(int n) {
             }
         }
     }
-    /*else
-    {
-        if (n % 2 != 0)
-            cerr << "Error. Rhombus is scalable only by even integers." << endl;
-        if (getDiagonal() + n < 1)
-            cerr << "Error. Rhombus actual diagonal + scale number has to be greater or equal to 1." << endl;
-    }*/
 }
 
 double Rhombus::geoArea() const {
@@ -124,7 +105,7 @@ void Rhombus::draw(Canvas &canvas, int c, int r, char fg, char bg) const {
     }
 }
 
-std::ostream &operator<<(std::ostream &ostr, const Rhombus &rhs) {
+ostream &operator<<(ostream &ostr, const Rhombus &rhs) {
     const Shape *shapePtr = &rhs;
     ostr << *shapePtr;
     ostr.precision(2);

@@ -3,18 +3,18 @@
 
 #include "Triangle.h"
 
-class RightAngle : public Triangle {
+class RightTriangle : public Triangle {
 public:
 
-    RightAngle() = delete;
+    RightTriangle() = delete;
 
-    RightAngle(int h, const std::string &d = "");
+    RightTriangle(int h, const std::string &d = "");
 
-    RightAngle(const RightAngle &) = default;
+    RightTriangle(const RightTriangle &) = default;
 
-    virtual ~RightAngle();
+    virtual ~RightTriangle();
 
-    const RightAngle &operator=(const RightAngle &rhs);
+    const RightTriangle &operator=(const RightTriangle &rhs);
 
     void scale(int n);
 

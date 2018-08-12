@@ -3,15 +3,17 @@
 
 #include "Shape.h"
 
+using namespace std;
+
 class Triangle : public Shape {
 public:
     Triangle() = delete;
 
-    Triangle(int h, int b, const std::string &gn, const std::string &d = "");
+    Triangle(int triangleHeight, int triangleBase, const string &gn, const string &desc = "");
 
     Triangle(const Triangle &) = default;
 
-    virtual ~Triangle();
+    ~Triangle() override;
 
     const Triangle &operator=(const Triangle &rhs);
 
@@ -21,7 +23,7 @@ public:
 
     int getBase() const;
 
-    std::string toString() const override;
+    string toString() const override;
 
     virtual void scale(int n) = 0;
 
@@ -48,6 +50,6 @@ private:
     int base;
 };
 
-std::ostream &operator<<(std::ostream &ostr, const Triangle &rhs);
+ostream &operator<<(ostream &ostr, const Triangle &rhs);
 
 #endif // !TRIANGLE_H

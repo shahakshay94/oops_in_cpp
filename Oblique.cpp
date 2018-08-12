@@ -1,12 +1,12 @@
 #include "Oblique.h"
-#include<math.h>
+#include<cmath>
 
 using namespace std;
 
 Oblique::Oblique(int base, const string &d) : Triangle((base + 1) / 2, base % 2 == 0 ? base + 1 : base, "Oblique", d) {
 }
 
-Oblique::~Oblique() {}
+Oblique::~Oblique() = default;
 
 const Oblique &Oblique::operator=(const Oblique &rhs) {
     Triangle::operator=(rhs);

@@ -7,11 +7,11 @@ class Oblique : public Triangle {
 public:
     Oblique() = delete;
 
-    Oblique(int h, const std::string &d = "");
+    explicit Oblique(int h, const std::string &d = "");
 
     Oblique(const Oblique &) = default;
 
-    virtual ~Oblique();
+    ~Oblique() override;
 
     const Oblique &operator=(const Oblique &rhs);
 

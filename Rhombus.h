@@ -4,23 +4,23 @@
 #include "Shape.h"
 #include <iostream>
 
+using namespace std;
+
 class Rhombus : public Shape {
 public:
     Rhombus() = delete;
 
-    Rhombus(int diag, const std::string &desc = "");
+    explicit Rhombus(int rhomDiagonal, const string &desc = "");
 
     Rhombus(const Rhombus &) = default;
 
-    ~Rhombus();
+    ~Rhombus() override;
 
     const Rhombus &operator=(const Rhombus &rhs);
 
     int getDiagonal() const;
 
-    void setDiagonal(int h);
-
-    std::string toString() const override;
+    string toString() const override;
 
     void scale(int n) override;
 
@@ -43,6 +43,6 @@ private:
     int diagonal;
 };
 
-std::ostream &operator<<(std::ostream &ostr, const Rhombus &rhs);
+ostream &operator<<(ostream &ostr, const Rhombus &rhs);
 
 #endif // !RHOMBUS_H
